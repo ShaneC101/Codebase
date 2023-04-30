@@ -8,7 +8,7 @@
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 li {
@@ -152,9 +152,11 @@ nav,
   border: none;
   background-color: #242424;
   color: white;
-  position: absolute;
+  position: fixed;
   bottom: 32px;
   right: 40px;
+  z-index: 100;
+  box-shadow: 0 12px 30px 0 rgb(0, 0, 0, 0.28);
 }
 
 .scroll {
@@ -174,7 +176,7 @@ nav,
   justify-content: center;
 }
 
-.scroll__icon::after {
+.scroll__icon:after {
   content: "";
   width: 4px;
   height: 6px;
@@ -230,6 +232,36 @@ nav {
   font-size: 20px;
 }
 
+/* MODAL  */
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90px;
+  max-width: 1100px;
+  height: 700px;
+  box-shadow: 0 20px 80px 0 rgb(0, 0, 0, 0.55);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  
+}
+
+.modal__half {
+  width: 50%;
+}
+
+.modal__about {
+  background-color: rgb(245, 245, 245);
+}
+
+.modal__contact {
+  background-color: #242424;
+  color: white;
+}
+
 /* PROJECTS  */
 
 .section__title {
@@ -247,6 +279,11 @@ nav {
   transition: all 600ms ease;
 }
 
+.project__wrapper:hover .project__img {
+  transform: scale(1.07);
+  filter: blur(5px);
+}
+
 .project__wrapper {
   position: relative;
   border-radius: 20px;
@@ -257,11 +294,6 @@ nav {
 .project__wrapper:hover .project__description {
   opacity: 1;
   transform: translateY(-50%);
-}
-
-.project__wrapper:hover .project__img {
-  transform: scale(1.07);
-  filter: blur(5px);
 }
 
 .project__description {
@@ -289,6 +321,7 @@ nav {
   background-color: #1c1d25;
   opacity: 0;
   transition: all 450ms ease;
+  visibility: hidden;
 }
 
 .project__description--title {
@@ -326,7 +359,6 @@ footer {
 
 .footer__logo--img {
   width: 70px;
-  filter: invert(1);
 }
 
 .footer__social--list {
@@ -341,4 +373,3 @@ footer {
 .footer__copyright {
   color: white;
 }
-
