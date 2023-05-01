@@ -278,7 +278,7 @@ nav {
   border-radius: 20px;
   overflow: hidden;
   display: flex;
-  
+  z-index: -1;
 }
 
 .modal__half {
@@ -398,6 +398,11 @@ transform: scale(1);
  padding: 20px;
 
 
+}
+
+.modal__overlay--visible {
+  z-index: 1;
+  display: flex;
 }
 
 .fa-spinner {
