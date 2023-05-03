@@ -278,7 +278,7 @@ nav {
   border-radius: 20px;
   overflow: hidden;
   display: flex;
-  z-index: -1;
+  z-index: 1;
 }
 
 .modal__half {
@@ -382,12 +382,13 @@ transform: scale(1);
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: -1;
 }
 
 .modal__overlay--loading {
   background-color: #242424;
   font-size: 80px;
-  z-index: -1;
+ 
 }
 
 .modal__overlay--success {
@@ -396,8 +397,6 @@ transform: scale(1);
  font-weight: 700;
  text-align: center;
  padding: 20px;
-
-
 }
 
 .modal__overlay--visible {
