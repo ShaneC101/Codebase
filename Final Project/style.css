@@ -30,6 +30,7 @@ button {
 
 section {
   background-color: rgb(245, 245, 245);
+  transition: all 300ms ease;
 }
 
 input, textarea {
@@ -143,6 +144,33 @@ nav,
   transition: all 400ms;
 }
 
+.dark-theme .title,
+.dark-theme .section__title,
+.dark-theme .section__sub-title,
+.dark-theme .nav__link--anchor,
+.dark-theme .fa-adjust,
+.dark-theme .header__para
+{
+  color: white;
+}
+ .dark-theme section {
+  background-color: #242424;
+}
+
+.dark-theme .scroll__icon {
+  border-color: white;
+}
+
+.dark-theme .scroll__icon::after,
+.dark-theme .link__hover-effect--black:after {
+  background-color: white;
+}
+
+.dark-theme .mail__btn {
+  background-color: white;
+  color: #242424;
+}
+
 /* LANDING PAGE */
 
 #landing-page {
@@ -249,9 +277,9 @@ nav {
 }
 
 #personal-logo {
-  width: 50px;
-  height: 50px;
-  filter: invert(1);
+  width: 80px;
+  height: 80px;
+  mix-blend-mode: color-burn
 }
 
 .nav__link--list {
@@ -545,7 +573,8 @@ footer {
 }
 
 .footer__logo--img {
-  width: 70px;
+  width: 100px;
+  mix-blend-mode: color-burn;
 }
 
 .footer__social--list {
