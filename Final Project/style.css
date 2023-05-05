@@ -171,6 +171,7 @@ nav,
   color: #242424;
 }
 
+
 /* LANDING PAGE */
 
 #landing-page {
@@ -593,7 +594,7 @@ footer {
 .footer__logo--popper {
   position: absolute;
   right: 0;
-  top: 16px;
+  top: 42px;
   font-weight: 700;
   opacity: 0;
   transition: all 300ms ease;
@@ -608,6 +609,7 @@ footer {
   transform: translateX(60px);
   opacity: 1;
 }
+
 
 /* 
  
