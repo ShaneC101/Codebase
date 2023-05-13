@@ -51,18 +51,20 @@ function priceHTML(originalPrice, salePrice) {
    if (!salePrice) {
     return `$${originalPrice.tofixed(2)}`;
    }
-    return `<span class="book__price--normal">$${originalPrice.toFixed(2)}</span>$${salePrice.toFixed(2)}`
+    return `<span class="book__price--normal">$${originalPrice.toFixed(
+      2
+    )}</span>$${salePrice.toFixed(2)}`;
    }
 
 function ratingsHTML(rating) {
   let ratingHTML = "";
   for (let i = 0; i < Math.floor(rating); ++i) {
-  ratingHTML += '<i class="fas fa-star"></i>\n';
+    ratingHTML += '<i class="fas fa-star"></i>\n';
 }
   if (!Number.isInteger(rating)) {
     ratingHTML += '<i class="fas fa-star-half-alt"></i>\n';
   }
- return ratingHTML;
+  return ratingHTML;
 }
 
 function filterBooks(event) {
@@ -74,9 +76,9 @@ setTimeout(() => {
 });
 // FAKE DATA
 function getBooks() {
-   return new Promise((resovle) => {
+   return new Promise((resolve) => {
     setTimeout(() => {
-      resovle([
+      resolve([
       {
         id: 1,
         title: "Crack the Coding Interview",
