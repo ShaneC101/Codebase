@@ -6,18 +6,18 @@ import Footer from './components/Footer';
 import Highlights from './components/Highlights';
 import Landing from './components/Landing';
 import Nav from './components/Nav';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 function App() {
   return (
+    <Router>
     <div className="App">
+      <Route />
       <Nav />
-      <Landing />
-      <Highlights />
-      <Featured />
-      <Discounted />
-      <Explore />
+     
       <Footer />
     </div>
+    </Router>
   );
 }
 
