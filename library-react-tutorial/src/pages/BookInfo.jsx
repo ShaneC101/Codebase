@@ -5,11 +5,10 @@ import { Link, useParams } from "react-router-dom";
 import Rating from "../components/Rating";
 import Price from "../components/Price";
 
-const BookInfo = ({ books }) => {
+const BookInfo = ({ books, addToCart }) => {
   const { id } = useParams();
   const book = books.find(book => +book.id === +id);
 
-  console.log(book)
   return (
     <div id="books__body">
       <main id="books__main">
@@ -55,9 +54,7 @@ const BookInfo = ({ books }) => {
                   deserunt vel magni odio voluptates reprehenderit iusto esse?
                 </p>
               </div>
-              <button className="btn">
-                Add to cart
-              </button>
+              <button className="btn" onClick={() => addToCart(book)}>Add to cart</button>
             </div>
           </div>
         </div>
