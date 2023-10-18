@@ -1,6 +1,6 @@
 import React from "react";
 
-const Cart = () => {
+const Cart = ({ cart, changeQuantity }) => {
   return (
     <div id="books__body">
       <main id="books__main">
@@ -39,13 +39,14 @@ const Cart = () => {
                     min={0} 
                     max={99} 
                     class="cart__input"
+                    value={book.quantity}
+                    onChange={(event) => changeQuantity(book, event.target.value)}
                     />
-                  </div>
+                   </div>
                   <div className="cart__total">$10.00</div>
-                </div>
-                    )
-                  })
-                }
+                  </div>
+                   );
+                  })}
                 <div className="cart__item">
                   <div className="cart__book">
                     <img
@@ -64,7 +65,9 @@ const Cart = () => {
                   <div className="cart__quantity">
                     <input type="number" min={0} max={99} class="cart__input" />
                   </div>
-                  <div className="cart__total">$10.00</div>
+                  <div className="cart__total">
+                    $10.00
+                    </div>
                 </div>
               </div>
             </div>

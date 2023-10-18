@@ -16,8 +16,17 @@ function App() {
     setCart([...cart, { ...book, quantity: 1}])
 }
 
-   function changeQuantity (book) {
-    console.log(book.quantity)
+   function changeQuantity (book, quantity) {
+    setCart(
+      cart.map((item) => 
+       item.id === book.id
+        ? {
+          ...item,
+          quantity: +quantity,
+        }
+      : item
+      )
+    );
    }
 
    useEffect(() => {
