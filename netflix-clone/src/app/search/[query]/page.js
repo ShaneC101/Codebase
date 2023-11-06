@@ -1,13 +1,18 @@
-'use client'
+"use client";
 
-import { useSession } from "next-auth/react";
+import ManageAccounts from "@/components/manage-accounts";
 import UnauthPage from "@/components/unauth-page";
+import { GlobalContext } from "@/app/context";
+import { useSession } from "next-auth/react";
+import { useContext } from "react";
 
-export default function Search(){
-    const { data: session } = useSession();
+export default function Search() {
+  const { loggedInAccount } = useContext(GlobalContext);
 
-    if (session === null) return <UnauthPage />;
-  
+  const {data: session} = useSession();
 
-    return <div>Search</div>
+  if(session === null) return <UnauthPage />;
+  if (loggedInAccount === null) return <ManageAccounts />;
+
+  return <div>Search</div>;
 }

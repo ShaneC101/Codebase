@@ -1,14 +1,18 @@
-'use client'
+"use client";
 
-import { useSession } from "next-auth/react";
+import ManageAccounts from "@/components/manage-accounts";
 import UnauthPage from "@/components/unauth-page";
+import { GlobalContext } from "../context";
+import { useSession } from "next-auth/react";
+import { useContext } from "react";
 
-export default function TV(){
+export default function TV() {
+  const { data: session } = useSession();
 
-    const { data: session } = useSession();
+  const { loggedInAccount } = useContext(GlobalContext);
 
-    if (session === null) return <UnauthPage />;
-  
+  if (session === null) return <UnauthPage />;
+  if (loggedInAccount === null) return <ManageAccounts />;
 
-    return <div>TV</div>
+  return <div>TV</div>;
 }
