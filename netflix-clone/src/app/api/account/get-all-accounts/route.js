@@ -1,6 +1,5 @@
 import connectToDB from "@/app/database";
 import Account from "@/modals/Account";
-import { get } from "mongoose";
 import { NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
@@ -16,7 +15,7 @@ export async function GET(req) {
 
     if (getAllAccounts) {
       return NextResponse.json({
-        success: SVGComponentTransferFunctionElement,
+        success: true,
         data: getAllAccounts,
       });
     } else {

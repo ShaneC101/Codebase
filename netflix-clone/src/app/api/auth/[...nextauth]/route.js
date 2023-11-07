@@ -8,21 +8,21 @@ const authOptions = {
         clientSecret : '2d4ad87c8c2f348966edc1aa7f4ffe612484786b'
       })
     ],
-    callbacks : {
-        async session({session, token, user}){
+    callbacks: {
+        async session({ session, token, user }) {
              session.user.username = session?.user?.name
              .split("")
              .join("")
              .toLocaleLowerCase();
 
-             session.uswer.uid = token.sub
+             session.user.uid = token.sub
 
-             return session
+             return session;
         },
     },
-    secret : "default_secret_key",
+    secret: "default_secret_key",
 };
 
 const handler = NextAuth(authOptions)
 
-export {handler as GET, handler as POST}
+export { handler as GET, handler as POST };

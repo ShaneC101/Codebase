@@ -21,6 +21,7 @@ export async function POST(req) {
     }
 
     const checkPin = await compare(pin, getCurrentAccount.pin);
+    
     if (checkPin) {
       return NextResponse.json({
         success: true,

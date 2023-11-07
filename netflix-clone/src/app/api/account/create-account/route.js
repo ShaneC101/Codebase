@@ -11,9 +11,10 @@ export async function POST(req) {
 
     const { name, pin, uid } = await req.json();
 
-    const IsAccountAlreadyExists = await Account.find({ uid, name });
+    const isAccountAlreadyExists = await Account.find({ uid, name });
+    console.log(isAccountAlreadyExists);
     const allAccounts = await Account.find({});
-    if (IsAccountAlreadyExists) {
+    if (isAccountAlreadyExists && isAccountAlreadyExists.length > 0) {
       return NextResponse.json({
         success: false,
         message: "Please try with a different name",
@@ -31,7 +32,7 @@ export async function POST(req) {
 
     const newlyCreatedAccount = await Account.create({
       name,
-      pin: hashpin,
+      pin: hashPin,
       uid,
     });
 
