@@ -5,8 +5,8 @@ const authOptions = {
     providers : [
       GithubProvider({
         clientId : 'Iv1.5a085b35c3c34849',
-        clientSecret : '2d4ad87c8c2f348966edc1aa7f4ffe612484786b'
-      })
+        clientSecret : '2d4ad87c8c2f348966edc1aa7f4ffe612484786b',
+      }),
     ],
     callbacks: {
         async session({ session, token, user }) {
