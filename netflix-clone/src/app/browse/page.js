@@ -16,5 +16,10 @@ export default function Browse() {
   if (loggedInAccount === null) return <ManageAccounts />;
   if (PageLoader) return <CircleLoader/>
 
-  return <div>Browse</div>;
+  return (
+    <main className="flex min-h-screen flex-col">
+       <CommonLayout />
+    </main>
+  )
+  
 }
