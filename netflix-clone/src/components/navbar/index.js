@@ -57,8 +57,18 @@ export default function Navbar() {
             height={120}
             alt="NETFLIX"
             className="cursor-pointer object-contain"
-            onClick={()=> router.push('/browse')}
+            onClick={() => router.push("/browse")}
           />
+          <ul className="hidden md:space-x-4 md:flex cursor-pointer">
+            {menuItems.map((item) => (
+              <li
+                className="cursor-pointer text-[16px] font-light text-[#e5e5e5] transistion duration-[.4s] hover:text-[#b3b3b3]"
+                key={item.id}
+              >
+                {item.title}
+              </li>
+            ))}
+          </ul>
         </div>
       </header>
     </div>
