@@ -27,7 +27,7 @@ export default function ManageAccounts() {
   const [showDeleteIcon, setShowDeleteIcon] = useState(false);
   const [pin, setPin] = useState("");
   const [pinError, setPinError] = useState(false);
-  const { showPinContainer, setShowPinContainer } = useState({
+  const [showPinContainer, setShowPinContainer] = useState({
     show: false,
     account: null,
   });
@@ -63,7 +63,7 @@ export default function ManageAccounts() {
     const res = await fetch("/api/account/create-account", {
       method: "POST",
       headers: {
-        "content-type": "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         ...formData,
@@ -97,11 +97,13 @@ export default function ManageAccounts() {
     }
   }
 
+
   async function handlePinSubmit(value, index) {
-    const response = await fetch("api/account/login-to-account", {
+    setPageLoader(true)
+    const response = await fetch("/api/account/login-to-account", {
       method: "POST",
       headers: {
-        "content-type": "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         uid: session?.user?.uid,
@@ -118,16 +120,20 @@ export default function ManageAccounts() {
         "loggedInAccount",
         JSON.stringify(showPinContainer.account)
       );
-      router.push(pathname);
+      if (pathname.includes("my-list"))
+        router.push(
+          `/my-list/${session?.user?.uid}/${showPinContainer.account?._id}`
+        );
+      else router.push(pathname);
       setPageLoader(false);
     } else {
       setPageLoader(false);
-      setPin(true);
+      setPinError(true);
       setPin("");
     }
   }
 
-  console.log(accounts, "accounts");
+  console.log(pageLoader, "accounts");
 
   if (pageLoader) return <CircleLoader />;
 
@@ -137,8 +143,8 @@ export default function ManageAccounts() {
         <h1 className="text-white font-bold text-[54px] my-[36px]">
           Who's Watching?
         </h1>
-        <ul className="flex gap-8 p-0 my-[25px">
-          {accounts && accounts.lenth
+        <ul className="flex p-0 my-[25px]">
+          {accounts && accounts.length
             ? accounts.map((item) => (
                 <li
                   className="max-w-[200px] w-[155px] cursor-pointer flex flex-col items-center gap-3 min-w-[200px]"
@@ -158,7 +164,7 @@ export default function ManageAccounts() {
                     {showDeleteIcon ? (
                       <div
                         onClick={() => handleRemoveAccount(item)}
-                        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-10 cursor-pointer"
+                        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 cursor-pointer"
                       >
                         <TrashIcon width={30} height={30} color="black" />
                       </div>
@@ -185,6 +191,7 @@ export default function ManageAccounts() {
                 </li>
               ))
             : null}
+
           {accounts && accounts.length < 4 ? (
             <li
               onClick={() => setShowAccountForm(!showAccountForm)}
@@ -201,6 +208,7 @@ export default function ManageAccounts() {
           >
             Manage Profiles
           </span>
+          
         </div>
       </div>
       <PinContainer
@@ -208,7 +216,7 @@ export default function ManageAccounts() {
         setPin={setPin}
         pinError={pinError}
         setPinError={setPinError}
-        showPinContainer={showPinContainer}
+        showPinContainer={showPinContainer.show}
         setShowPinContainer={setShowPinContainer}
         handlePinSubmit={handlePinSubmit}
       />

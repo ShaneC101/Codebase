@@ -1,5 +1,5 @@
 import connectToDB from "@/app/database";
-import Account from "@/modals/Account";
+import Account from "@/models/Account";
 import { hash } from "bcryptjs";
 import { NextResponse } from "next/server";
 
@@ -12,8 +12,9 @@ export async function POST(req) {
     const { name, pin, uid } = await req.json();
 
     const isAccountAlreadyExists = await Account.find({ uid, name });
-    console.log(isAccountAlreadyExists);
     const allAccounts = await Account.find({});
+    console.log(isAccountAlreadyExists);
+
     if (isAccountAlreadyExists && isAccountAlreadyExists.length > 0) {
       return NextResponse.json({
         success: false,

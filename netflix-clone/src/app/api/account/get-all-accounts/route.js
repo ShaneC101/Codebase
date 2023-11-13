@@ -1,5 +1,5 @@
 import connectToDB from "@/app/database";
-import Account from "@/modals/Account";
+import Account from "@/models/Account";
 import { NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";

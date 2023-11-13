@@ -1,5 +1,5 @@
 import connectToDB from "@/app/database";
-import Account from "@/modals/Account";
+import Account from "@/models/Account";
 import { compare } from "bcryptjs";
 import { NextResponse } from "next/server";
 
