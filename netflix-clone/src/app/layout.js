@@ -1,8 +1,7 @@
-import NextAuthProvider from "@/auth-provider";
-import { GlobalLayoutRouterContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import { Inter } from "next/font/google";
 import GlobalState from "./context";
 import "./globals.css";
+import { Inter } from "next/font/google";
+import NextAuthProvider from "@/auth-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 

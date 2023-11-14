@@ -27,14 +27,14 @@ export async function DELETE(req) {
     } else {
       return NextResponse.json({
         success: false,
-        message: "Something Went Wrong",
+        message: "Something Went wrong",
       });
     }
   } catch (e) {
     console.log(e);
     return NextResponse.json({
       success: false,
-      message: "Something Went Wrong",
+      message: "Something Went wrong",
     });
   }
 }

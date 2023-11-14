@@ -97,9 +97,8 @@ export default function ManageAccounts() {
     }
   }
 
-
   async function handlePinSubmit(value, index) {
-    setPageLoader(true)
+    setPageLoader(true);
     const response = await fetch("/api/account/login-to-account", {
       method: "POST",
       headers: {
@@ -208,7 +207,6 @@ export default function ManageAccounts() {
           >
             Manage Profiles
           </span>
-          
         </div>
       </div>
       <PinContainer
